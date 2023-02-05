@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    font-family: "Verlag Black", Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Verlag Black", Arial, Helvetica, sans-serif;
+    background-image: url("./img/background-img.jpg");
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    height:10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.733);
+  }
+  
+  /* Style the topnav links */
+  .header-title {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Style the content */
+  .content {
+    background-color: #ddd;
+    padding: 10px;
+    height:80vh;
+    background-color: rgba(255, 0, 0, 0);
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+
+  .instructions {
+    font-size: 30px;
+    font-family: "Verlag Black", sans-serif;
+    font-weight: 600;
+  }
+
+
+  
+  /* Style the footer */
+  .footer {
+    background-color: #f1f1f1;
+    color: #f2f2f2;
+    padding: 10px;
+    flex:1;
+    background-color: rgba(0, 0, 0, 0.733);
+  }
