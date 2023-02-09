@@ -51,7 +51,13 @@
     font-weight: 600;
   }
 
+.search-container>input:invalid {
+    border: 2px solid red;
+}
 
+.search-container>input:valid {
+    border: 2px solid black;
+  }
   
   /* Style the footer */
   .footer {
