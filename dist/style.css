@@ -59,6 +59,33 @@
     border: 2px solid black;
   }
   
+
+#main-weather-content{
+  background-color: rgb(255, 255, 255,0.8);
+  display:flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 30%;
+}
+
+.weather-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-header>#city-name-text{
+  font-size: 30px;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+}
+
+.image-container > img{
+  height:15vh;
+}
+
   /* Style the footer */
   .footer {
     background-color: #f1f1f1;

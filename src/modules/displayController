@@ -1,0 +1,117 @@
+// This controls any display changes
+const content = document.querySelector(`#main-weather-content`);
+
+
+function updateDisplay(weatherData){
+    console.log(weatherData) //to remove
+    content.textContent = ""; //flushes #main-weather-content
+
+    // Creates the weather header and appends the city name
+    const weatherHeader = document.createElement('div');
+    weatherHeader.classList.add('weather-header');
+    content.appendChild(weatherHeader); //appends the Weather Header to main content
+    const cityNameText = createTextElement(weatherHeader, `${weatherData.name}`, 'city-name-text');
+  
+    // Time container
+    const timeContainer = document.createElement('div');
+    timeContainer.classList.add('time-container');
+    timeContainer.appendChild(createDate(weatherData));
+    timeContainer.appendChild(createTime(weatherData));
+    weatherHeader.appendChild(timeContainer);
+    
+    // Image
+    const imageContainer = document.createElement(`div`);
+    imageContainer.classList.add(`image-container`);
+    imageContainer.appendChild(createImage(weatherData));
+    content.appendChild(imageContainer);
+
+    const weatherInfo = document.createElement('div');
+    weatherInfo.classList.add('weather-info');
+    content.appendChild(weatherInfo);
+    weatherInfo.appendChild(createTemp(weatherData));
+    weatherInfo.appendChild(createWeather(weatherData));
+    weatherInfo.appendChild(createWind(weatherData));
+} 
+
+
+function createTime(weatherData){
+    
+    let currentTime = new Date(weatherData.dt*1000);
+    const timeText = document.createElement(`div`);
+    timeText.textContent = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
+    timeText.id = `time-text`;
+    return timeText;
+}
+
+function createDate(weatherData){
+    let currentTime = new Date(weatherData.dt*1000);
+    const dateText = document.createElement(`div`);
+    dateText.textContent = `${currentTime.getDate()}/${currentTime.getUTCMonth()}`;
+    dateText.id = `date-text`;
+    return dateText;
+}
+
+function createImage(weatherData){
+    const weatherImage = document.createElement('img');
+    weatherImage.src = `./img/${getweatherImageCode(weatherData)}.png`;
+    return weatherImage;
+
+}
+
+function createTemp(weatherData){
+    const temp = createTextElement(content, `Min: ${weatherData.main.temp_min}\u00B0C | Max ${weatherData.main.temp_max} \u00B0C`, `temp-text`);
+    return temp;
+}
+
+function createWeather(weatherData){
+    const weather = createTextElement(content, `Weather: ${weatherData.weather[0].main}`,'weather-text');
+    return weather;
+}
+
+function createWind(weatherData){
+    const wind = createTextElement(content, `Wind speed: ${weatherData.wind.speed} m/s`,'wind-text');
+    return wind;
+}
+
+
+
+function createTextElement(parentNode, text, id){
+    const textElement = document.createElement(`div`);
+    textElement.textContent = text;
+    textElement.id = id;
+
+    parentNode.appendChild(textElement);
+    return textElement;
+}
+
+function getweatherImageCode(weatherData){
+    // please refer to the below link for weather conditions and icons
+    // https://openweathermap.org/weather-conditions
+    const currentWeather = weatherData.weather[0].main;
+    switch (currentWeather){
+        case "Clouds": return "cloud";
+        case "Clear": return "sun";
+        case "Snow": return "snow";
+        case "Rain": return "thunderstorm";
+        case "Drizzle": return "rain";
+        case "Thunderstorm": return "thunderstorm-bolt";
+    }
+
+}
+
+
+// function getweatherImageCode(weatherData){
+//     // please refer to the below link for weather conditions and icons
+//     // https://openweathermap.org/weather-conditions
+//     const currentWeather = weatherData.weather[0].main;
+//     switch (currentWeather){
+//         case "Clouds": return "10d";
+//         case "Clear": return "01d";
+//         case "Snow": return "13d";
+//         case "Rain": return "09d";
+//         case "Drizzle": return "10d";
+//         case "Thunderstorm": return "11d";
+//     }
+
+// }
+export default updateDisplay;

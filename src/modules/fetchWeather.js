@@ -1,3 +1,5 @@
+import updateDisplay from "./displayController";
+
 const searchField = document.querySelector('#search-box');
 const content = document.querySelector(`#content`);
 
@@ -21,7 +23,6 @@ async function fetchWeather() {
         }
 
         const weatherData = await response.json();
-
         updateDisplay(weatherData);
         return weatherData;
     }
@@ -32,19 +33,3 @@ async function fetchWeather() {
 
 export default fetchWeather;
 
-function updateDisplay(weatherData){
-    console.log(weatherData)
-    console.log(weatherData.name)
-    
-    const mainText = createTextElement(content, `${weatherData.name}`, 'main-text')
-} 
-
-
-function createTextElement(parentNode, text, id){
-    const textElement = document.createElement(`div`);
-    textElement.textContent = text;
-    textElement.id = id;
-
-    parentNode.appendChild(textElement);
-    return textElement;
-}
