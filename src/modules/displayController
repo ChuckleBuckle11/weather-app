@@ -1,6 +1,6 @@
 // This controls any display changes
 const content = document.querySelector(`#main-weather-content`);
-
+const DATES = ["January", "February", "March", "April", "May", "June", "July", "August" ,"September", "October" ,"November","December"]
 
 function updateDisplay(weatherData){
     console.log(weatherData) //to remove
@@ -37,16 +37,20 @@ function updateDisplay(weatherData){
 function createTime(weatherData){
     
     let currentTime = new Date(weatherData.dt*1000);
+    let currentMonth = currentTime.getMonth();
+    let currentDate = currentTime.getDate();
+    let timeHour = currentTime.getHours();
+    let timeMinute = currentTime.getMinutes();
+
     const timeText = document.createElement(`div`);
-    timeText.textContent = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
+    timeText.textContent = `${DATES[currentMonth-1]} ${currentDate}, ${timeHour}:${timeMinute.toString().padStart(2,0)}`;
     timeText.id = `time-text`;
     return timeText;
 }
 
 function createDate(weatherData){
-    let currentTime = new Date(weatherData.dt*1000);
     const dateText = document.createElement(`div`);
-    dateText.textContent = `${currentTime.getDate()}/${currentTime.getUTCMonth()}`;
+    dateText.textContent = `Updated as of:`;//`${currentTime.getDate()}/${currentTime.getUTCMonth()}`;
     dateText.id = `date-text`;
     return dateText;
 }

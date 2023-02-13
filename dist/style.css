@@ -1,22 +1,37 @@
 * {
     box-sizing: border-box;
     font-family: "Verlag Black", Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
   }
   
+  html{
+    height: 100%;
+  }
   body {
-    margin: 0;
     font-family: "Verlag Black", Arial, Helvetica, sans-serif;
     background-image: url("./img/background-img.jpg");
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
   }
   
   /* Style the top navigation bar */
   .topnav {
     overflow: hidden;
-    height:10vh;
+   
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.733);
+    box-sizing: border-box;
+
+    flex:0.1;
+    margin: 0px;
+    padding: 0px;
   }
   
   /* Style the topnav links */
@@ -34,15 +49,17 @@
   /* Style the content */
   .content {
     background-color: #ddd;
-    padding: 10px;
-    height:80vh;
     background-color: rgba(255, 0, 0, 0);
-
+    
     display:flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
+
+    box-sizing: border-box;
     margin-top: 20px;
+    padding: 10px;
+    flex:0.8;
   }
 
   .instructions {
@@ -60,12 +77,37 @@
   }
   
 
+
+/* Loading screen */
+#loading-screen{
+  display: none;
+  width:2rem;
+  height: 2rem;
+  margin: 20px;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid #f28841;
+  border-radius: 100%;
+  animation: spin 1s infinite linear;
+  align-self: center;
+}
+#loading-screen.display {
+  display: block;
+}
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
 #main-weather-content{
   background-color: rgb(255, 255, 255,0.8);
   display:flex;
   flex-direction: column;
-  padding: 20px;
   width: 30%;
+}
+
+#main-weather-content > div{
+  padding:20px;
 }
 
 .weather-header{
@@ -90,7 +132,9 @@
   .footer {
     background-color: #f1f1f1;
     color: #f2f2f2;
-    padding: 10px;
-    flex:1;
+    box-sizing: border-box;
+    flex:0.1;
+    padding: 0px;
+    margin: 0px;
     background-color: rgba(0, 0, 0, 0.733);
   }
