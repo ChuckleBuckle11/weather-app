@@ -2,7 +2,8 @@ import updateDisplay from "./displayController";
 
 const searchField = document.querySelector('#search-box');
 const content = document.querySelector(`#content`);
-const loadingScreen = document.querySelector('#loading-screen');
+const loadingScreen = document.createElement('p');
+loadingScreen.id = "loading-screen";
 const mainWeatherContent = document.querySelector("#main-weather-content");
 async function fetchWeather() {
     try {
@@ -39,9 +40,9 @@ function displayLoading(){
     mainWeatherContent.appendChild(loadingScreen);
     loadingScreen.classList.add("display");
     // to Stop loading after some time
-    setTimeout(()=>{
-        hideLoading();
-    },5000);
+    // setTimeout(()=>{
+    //     hideLoading();
+    // },5000);
 }
 
 function hideLoading(){
