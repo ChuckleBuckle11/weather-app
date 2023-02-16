@@ -95,27 +95,39 @@
   display: block;
 }
 
+/* Main weather content */
+#main-weather-content.active{ 
+  
 
-#main-weather-content{
-  background-color: rgb(255, 255, 255,0.8);
-  display:flex;
-  flex-direction: column;
-  width: 30%;
+  width: 95%;
+  height:100%;
+
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  gap:20px;
 
   animation: fadeInAnimation ease 1s;
 }
 
+#main-weather-content.hidden{
+  display: none;
+}
+
+
 #main-weather-content > div{
+  background-color: rgb(255, 255, 255,0.8);
   padding:20px;
   animation: fadeInAnimation ease 1s;
 }
 
-.weather-header{
-  display: flex;
-  justify-content: space-between;
+/* #Today-weather */
+#main-weather-content > #today-weather{
+  grid-column: 1/2;
+  grid-row: 1/3;
 }
 
-.weather-header>#city-name-text{
+#today-weather>#city-name-text{
   font-size: 30px;
 }
 
@@ -128,6 +140,25 @@
 .image-container > img{
   height:15vh;
 }
+
+
+#main-weather-content > #weather-forecast{
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+#main-weather-content > #weather-info{
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.weather-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
 
   /* Style the footer */
   .footer {
