@@ -1,0 +1,26 @@
+
+
+function createWeatherInfo(weatherData){
+    const weatherInfoContainer = document.createElement('div');
+    weatherInfoContainer.classList.add('weather-info');
+    const temp = createTextElement(`Min: ${weatherData.main.temp_min}\u00B0C | Max ${weatherData.main.temp_max} \u00B0C`, `temp-text`);
+    const weather = createTextElement(`Weather: ${weatherData.weather[0].main}`,'weather-text');
+    const windSpeed = createTextElement(`Wind speed: ${weatherData.wind.speed} m/s`,'wind-text');
+
+
+    weatherInfoContainer.appendChild(temp);
+    weatherInfoContainer.appendChild(weather);
+    weatherInfoContainer.appendChild(windSpeed);
+    return weatherInfoContainer;
+}
+
+
+function createTextElement(text, id){
+    const textElement = document.createElement(`div`);
+    textElement.textContent = text;
+    textElement.id = id;
+    return textElement;
+}
+
+
+export default createWeatherInfo;

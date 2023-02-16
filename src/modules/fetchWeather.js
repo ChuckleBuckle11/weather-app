@@ -1,12 +1,12 @@
 import updateDisplay from "./displayController";
 
 const searchField = document.querySelector('#search-box');
-const content = document.querySelector(`#content`);
 const loadingScreen = document.createElement('p');
 loadingScreen.id = "loading-screen";
 const mainWeatherContent = document.querySelector("#main-weather-content");
+
+
 async function fetchWeather() {
-    try {
         //if search bar is empty, return and trigger invalid
         if (searchField.validity.valueMissing) {
             searchField.setCustomValidity("Please enter a valid input.")
@@ -26,13 +26,11 @@ async function fetchWeather() {
         }
 
         const weatherData = await response.json();
-        // hideLoading();
+        hideLoading();
         updateDisplay(weatherData);
         return weatherData;
-    }
-    catch(error){
-        console.log(error)
-    }
+
+
 }
 
 function displayLoading(){

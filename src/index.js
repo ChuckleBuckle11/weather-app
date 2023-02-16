@@ -6,6 +6,7 @@ import fetchWeather from "./modules/fetchWeather.js";
 const searchButton = document.querySelector(`#search-button`);
 const searchBox = document.querySelector(`#search-box`);
 
+// Upon button click, fetches weather data
 searchButton.onclick = fetchWeather;
 
 searchBox.addEventListener("keyup", event => {
