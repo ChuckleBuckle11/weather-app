@@ -4,7 +4,7 @@
 - responsive website
 
 
-[Try it live here!](https://chucklebuckle11.github.io/weather-app/).
+[Try it live here!](https://chucklebuckle11.github.io/weather-app/)
 
 ![Screenshot of page](docs/img/screenshot.png)
 
