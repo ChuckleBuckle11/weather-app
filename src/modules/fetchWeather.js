@@ -25,12 +25,19 @@ async function fetchWeather() {
             throw new Error(response.statusText);
         }
 
+        let forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=32cc350ce67f8346a60c40673c36dfff&units=${unit}`, { mode: 'cors' });
+        
+        if (!forecastResponse.ok){ //throws an error if city does not exist
+            alert("Please enter a valid city.")
+            throw new Error(response.statusText);
+        }
+
         removeLoading();
         const weatherData = await response.json();
-        updateDisplay(weatherData);
+        const forecastData = await forecastResponse.json();
+
+        updateDisplay(weatherData, forecastData);
         return weatherData;
-
-
 }
 
 function displayLoading(){

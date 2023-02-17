@@ -107,4 +107,4 @@ function getweatherImageCode(weatherData){
 
 }
 export default createTodayWeather
-export {getAMPM};
+export {getAMPM, createImage, getweatherImageCode};

@@ -6,14 +6,14 @@ import createForecast from "./forecast";
 const mainWeatherContent = document.querySelector(`#main-weather-content`);
 const DATES = ["January", "February", "March", "April", "May", "June", "July", "August" ,"September", "October" ,"November","December"]
 
-function updateDisplay(weatherData){
+function updateDisplay(weatherData, forecastData){
     
     console.log(weatherData) //to remove
     flushMain(); //flushes #main-weather-content
     showMain();
 
     mainWeatherContent.appendChild(createTodayWeather(weatherData));
-    mainWeatherContent.appendChild(createForecast(weatherData));
+    mainWeatherContent.appendChild(createForecast(forecastData));
     mainWeatherContent.appendChild(createWeatherInfo(weatherData));
 
 } 
