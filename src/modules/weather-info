@@ -1,18 +1,167 @@
-
+import { getAMPM } from "./todayWeather";
 
 function createWeatherInfo(weatherData){
     const weatherInfoContainer = document.createElement('div');
-    weatherInfoContainer.classList.add('weather-info');
-    const temp = createTextElement(`Min: ${weatherData.main.temp_min}\u00B0C | Max ${weatherData.main.temp_max} \u00B0C`, `temp-text`);
-    const weather = createTextElement(`Weather: ${weatherData.weather[0].main}`,'weather-text');
-    const windSpeed = createTextElement(`Wind speed: ${weatherData.wind.speed} m/s`,'wind-text');
+    weatherInfoContainer.id= 'weather-info';
 
+    weatherInfoContainer.appendChild(createHeader()); // appends header
 
-    weatherInfoContainer.appendChild(temp);
-    weatherInfoContainer.appendChild(weather);
-    weatherInfoContainer.appendChild(windSpeed);
+    //Row 1
+    weatherInfoContainer.appendChild(createTemperature(weatherData));
+    weatherInfoContainer.appendChild(createHumidity(weatherData));
+    weatherInfoContainer.appendChild(createAtm(weatherData));
+    weatherInfoContainer.appendChild(createWindSpeed(weatherData));
+
+    //Row 2
+    weatherInfoContainer.appendChild(createWindDirection(weatherData));
+    weatherInfoContainer.appendChild(createSunrise(weatherData));
+    weatherInfoContainer.appendChild(createSunset(weatherData));
+    weatherInfoContainer.appendChild(createCloudiness(weatherData));
     return weatherInfoContainer;
 }
+
+function createHeader(){
+    const header = document.createElement('div');
+    header.id = 'weather-info-header';
+    header.textContent = "Today's Weather Details";
+    return header
+}
+
+function createTemperature(weatherData){ //Creates temperature div
+    const minTemp = weatherData.main.temp_min;
+    const maxTemp = weatherData.main.temp_max;
+
+    const title = "Min | Max Temperature";
+    const subtitle = `${minTemp} \u00B0C  |  ${maxTemp} \u00B0C`;
+    const id = "temperature";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createHumidity(weatherData){ //Creates Humidity div
+    const humidity = weatherData.main.humidity;
+
+    const title = "Humidity";
+    const subtitle = `${humidity} %`;
+    const id = "humidity";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createAtm(weatherData){ //Creates Humidity div
+    const atm = weatherData.main.pressure/10; //converts hPA to kPA
+
+    const title = "Atmospheric Pressure";
+    const subtitle = `${atm} kPa`;
+    const id = "atm-pressure";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createWindSpeed(weatherData){ //Creates Humidity div
+    const windSpeed = weatherData.wind.speed; //in m/s
+
+    const title = "Wind Speed";
+    const subtitle = `${windSpeed} m/s`;
+    const id = "wind-speed";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createWindDirection(weatherData){ //Creates wind direction div
+    const windDirection = degToCompass(weatherData.wind.deg); //in compass direction
+
+    const title = "Wind Direction";
+    const subtitle = `${windDirection}`;
+    const id = "wind-direction";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createSunrise(weatherData){ //Creates sunrise div
+    const sunriseTime = new Date(weatherData.sys.sunrise * 1000); 
+    const sunriseTimeHour = (sunriseTime.getHours()).toString().padStart(2,'0');
+    const sunriseTimeMinute = sunriseTime.getMinutes().toString().padStart(2,'0');
+    const sunriseAMPM = getAMPM(sunriseTimeHour);
+
+
+    const title = "Sunrise";
+    const subtitle = `${sunriseTimeHour}:${sunriseTimeMinute} ${sunriseAMPM}`;
+    const id = "sunrise";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+function createSunset(weatherData){ //Creates sunset div
+    const sunsetTime = new Date(weatherData.sys.sunset * 1000);
+    const sunsetTimeHour = (Math.abs(sunsetTime.getHours())).toString().padStart(2,'0');
+    const sunsetTimeMinute = sunsetTime.getMinutes().toString().padStart(2,'0');
+    const sunsetAMPM = getAMPM(sunsetTimeHour);
+
+
+    const title = "Sunset";
+    const subtitle = `${sunsetTimeHour}:${sunsetTimeMinute} ${sunsetAMPM}`;
+    const id = "sunset";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+function createCloudiness(weatherData){ //Creates Humidity div
+   const cloudiness = weatherData.clouds.all; //in %
+
+
+    const title = "Cloudiness";
+    const subtitle = `${cloudiness} %`;
+    const id = "cloudiness";
+    const container = createInfo(title,subtitle,id);
+    return container;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createInfo(title, subtitle, id){
+    const info = document.createElement('div');
+    info.id = `weather-info-${id}`;
+    info.classList.add("weather-info-info")
+
+    const img_container = document.createElement('div');
+    img_container.classList.add('weather-info-img-container');
+
+    const info_img = document.createElement('img');
+    info_img.id = `${info.id}-img`;
+    info_img.classList.add("weather-info-img");
+    info_img.src = `img/${id}.png`; // GET SOURCE
+    
+    img_container.appendChild(info_img)
+
+    const titleText = document.createElement('div');
+    titleText.id = `weather-info-${id}-title`;
+    titleText.classList.add(`weather-info-title`);
+    titleText.textContent = title;
+
+    const subtitleText = document.createElement('div');
+    subtitleText.id = `weather-info-${id}-subtitle`;
+    subtitleText.classList.add(`weather-info-subtitle`);
+    subtitleText.textContent = subtitle;
+
+    info.appendChild(img_container);
+    info.appendChild(titleText);
+    info.appendChild(subtitleText);
+
+    return info;
+}
+
 
 
 function createTextElement(text, id){
@@ -22,5 +171,11 @@ function createTextElement(text, id){
     return textElement;
 }
 
+function degToCompass(num) {
+    // https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
+    var val = Math.floor((num / 22.5) + 0.5);
+    var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return arr[(val % 16)];
+}
 
 export default createWeatherInfo;

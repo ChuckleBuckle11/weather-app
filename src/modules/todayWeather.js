@@ -38,7 +38,7 @@ function createImage(weatherData){
 function createTemperature(weatherData){
     const temp = document.createElement('div');
     temp.id = `today-temperature`;
-    temp.textContent = `${weatherData.main["feels_like"]} \u00B0C`;
+    temp.textContent = `${Math.round(weatherData.main["feels_like"])} \u00B0C`;
     return temp;
     
 }
@@ -46,7 +46,7 @@ function createTemperature(weatherData){
 function createWeatherDesc(weatherData){
     const weatherDesc = document.createElement('div');
     weatherDesc.id = `today-weather-desc`;
-    weatherDesc.textContent = `${weatherData.weather[0].main}`;
+    weatherDesc.textContent = `${weatherData.weather[0].description}`;
     return weatherDesc;
 }
 
@@ -67,12 +67,11 @@ function formatDate(unixDate){
     let suffix = getSuffix(date);
     let month = currentTime.getMonth();
     let year = currentTime.getFullYear();
-    let hour = currentTime.getHours();
-    let minute = currentTime.getMinutes();
+    let hour = currentTime.getHours().toString().padStart(2,'0');
+    let minute = currentTime.getMinutes().toString().padStart(2,'0');
     let AMPM = getAMPM(hour);
     let string =  `${DAYS[today-1]} ${date}${suffix} ${MONTHS[month]} ${year} ${hour}:${minute} ${AMPM}`
  
-    console.log(currentTime);
     return string;
 }
 
@@ -108,3 +107,4 @@ function getweatherImageCode(weatherData){
 
 }
 export default createTodayWeather
+export {getAMPM};

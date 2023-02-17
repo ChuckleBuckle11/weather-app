@@ -1,8 +1,8 @@
 import updateDisplay from "./displayController.js";
 
 const searchField = document.querySelector('#search-box');
-const loadingScreen = document.createElement('p');
-loadingScreen.id = "loading-screen";
+
+
 const mainWeatherContent = document.querySelector("#main-weather-content");
 
 
@@ -25,8 +25,8 @@ async function fetchWeather() {
             throw new Error(response.statusText);
         }
 
+        removeLoading();
         const weatherData = await response.json();
-        hideLoading();
         updateDisplay(weatherData);
         return weatherData;
 
@@ -34,18 +34,30 @@ async function fetchWeather() {
 }
 
 function displayLoading(){
-    
-    mainWeatherContent.appendChild(loadingScreen);
+    const loadingScreenContainer = document.createElement('div');
+    loadingScreenContainer.id = "loading-screen-container";
+
+    const loadingScreen = document.createElement('p');
+    loadingScreen.id = "loading-screen";
+    loadingScreenContainer.appendChild(loadingScreen);
+
+    mainWeatherContent.classList.remove("active");
+    mainWeatherContent.classList.add("loading");
+
+    mainWeatherContent.appendChild(loadingScreenContainer);
     loadingScreen.classList.add("display");
-    // to Stop loading after some time
-    // setTimeout(()=>{
-    //     hideLoading();
-    // },5000);
+
 }
 
-function hideLoading(){
+function removeLoading(){
+    const loadingScreen = document.querySelector('#loading-screen');
     loadingScreen.classList.remove("display");
+
+    mainWeatherContent.classList.remove("loading");
+    mainWeatherContent.classList.add("active");
+    
 }
+
 
 export default fetchWeather;
 
