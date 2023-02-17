@@ -11,7 +11,8 @@
   }
   body {
     font-family: "Verlag Black", Arial, Helvetica, sans-serif;
-    background-image: url("./img/background-img.jpg");
+    background-image: url("./img/679478.jpg");
+    background-size: contain;
 
     display: flex;
     flex-direction: column;
