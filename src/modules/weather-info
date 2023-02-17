@@ -116,20 +116,6 @@ function createCloudiness(weatherData){ //Creates Humidity div
     return container;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function createInfo(title, subtitle, id){
     const info = document.createElement('div');
     info.id = `weather-info-${id}`;
