@@ -1,4 +1,4 @@
-import updateDisplay from "./displayController";
+import updateDisplay from "./displayController.js";
 
 const searchField = document.querySelector('#search-box');
 const loadingScreen = document.createElement('p');

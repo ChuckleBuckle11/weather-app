@@ -117,7 +117,7 @@
 
 #main-weather-content > div{
   background-color: rgb(255, 255, 255,0.8);
-  padding:20px;
+
   animation: fadeInAnimation ease 1s;
 }
 
@@ -125,6 +125,11 @@
 #main-weather-content > #today-weather{
   grid-column: 1/2;
   grid-row: 1/3;
+  
+}
+
+#today-weather>div{
+  text-align: center;
 }
 
 #today-weather>#city-name-text{
@@ -135,11 +140,27 @@
   display: flex;
   justify-content: center;
   animation: fadeInAnimation ease 1s;
+  padding: 50px 0px;
 }
 
 .image-container > img{
   height:15vh;
 }
+
+#today-weather>#today-temperature{
+  font-size: 30px;
+}
+
+#today-weather>#today-weather-desc{
+  font-size: 20px;
+}
+
+#today-weather>#today-data-time{
+  font-size:10px;
+  font-weight: 200;
+	margin-top: 5rem;
+}
+
 
 
 #main-weather-content > #weather-forecast{

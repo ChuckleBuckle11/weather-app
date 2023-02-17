@@ -18,33 +18,6 @@ function updateDisplay(weatherData){
 
 } 
 
-
-function createTemp(weatherData){
-    const temp = createTextElement(mainWeatherContent, `Min: ${weatherData.main.temp_min}\u00B0C | Max ${weatherData.main.temp_max} \u00B0C`, `temp-text`);
-    return temp;
-}
-
-function createWeather(weatherData){
-    const weather = createTextElement(mainWeatherContent, `Weather: ${weatherData.weather[0].main}`,'weather-text');
-    return weather;
-}
-
-function createWind(weatherData){
-    const wind = createTextElement(mainWeatherContent, `Wind speed: ${weatherData.wind.speed} m/s`,'wind-text');
-    return wind;
-}
-
-
-
-function createTextElement(parentNode, text, id){
-    const textElement = document.createElement(`div`);
-    textElement.textContent = text;
-    textElement.id = id;
-
-    parentNode.appendChild(textElement);
-    return textElement;
-}
-
 function showMain(){
     mainWeatherContent.classList.add("active");
 }
