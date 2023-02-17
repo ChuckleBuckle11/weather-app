@@ -2,7 +2,6 @@
 
 import fetchWeather from "./modules/fetchWeather.js";
 
-
 const searchButton = document.querySelector(`#search-button`);
 const searchBox = document.querySelector(`#search-box`);
 
@@ -14,5 +13,3 @@ searchBox.addEventListener("keyup", event => {
     searchButton.click();
     event.preventDefault();
     })
-
-

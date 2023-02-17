@@ -16,6 +16,17 @@ function updateDisplay(weatherData, forecastData){
     mainWeatherContent.appendChild(createForecast(forecastData));
     mainWeatherContent.appendChild(createWeatherInfo(weatherData));
 
+    const forecast = document.querySelector(`#weather-forecast`)
+    console.log(forecast);
+    var flkty = new Flickity( forecast, {
+        // options
+        cellAlign: 'center',
+        contain: true,
+        autoPlay:true,
+        draggable: true,
+        groupCells:2,
+      });
+
 } 
 
 function showMain(){

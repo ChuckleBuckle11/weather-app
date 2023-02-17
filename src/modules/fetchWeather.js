@@ -37,6 +37,7 @@ async function fetchWeather() {
         const forecastData = await forecastResponse.json();
 
         updateDisplay(weatherData, forecastData);
+
         return weatherData;
 }
 

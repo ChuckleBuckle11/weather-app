@@ -175,7 +175,7 @@
 }
 
 #today-weather>#today-data-time{
-  font-size:10px;
+  font-size:15px;
   font-weight: 200;
 	margin-top: 5rem;
 }
@@ -189,14 +189,23 @@
 
   border-radius: 20px;
 
-  display:grid;
-  grid-template-columns: repeat(5,1fr);
-  grid-template-rows: 1fr;
 }
 
+.forecast-info{
+  width: 50%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .forecast-info>img{
   height: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
+
+
 
 
 
@@ -240,7 +249,7 @@
 }
 
 .weather-info-img{
-  height: 40px;
+  height: 5vh;
   width: auto;
   display: block;
   margin: auto;
@@ -267,8 +276,10 @@
     align-items: center;
   }
 
-
-
+/* Flickity */
+.flickity-page-dots{
+  bottom:0.7rem;
+}
 
 /* Animations */
   @keyframes spin {
