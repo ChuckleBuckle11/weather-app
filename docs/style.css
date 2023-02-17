@@ -68,6 +68,9 @@
     font-weight: 600;
   }
 
+#search-box{
+  text-align: center;
+}
 .search-container>input:invalid {
     border: 2px solid red;
 }
@@ -76,6 +79,9 @@
     border: 2px solid black;
   }
   
+#search-button{
+  padding: 0px 10px;
+}  
 
 
 /* Loading screen */
