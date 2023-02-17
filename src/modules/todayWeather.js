@@ -31,7 +31,7 @@ function createImageContainer(weatherData){
 function createImage(weatherData){
     const weatherImage = document.createElement('img');
     weatherImage.src = ``;
-    weatherImage.src = `/dist/img/${getweatherImageCode(weatherData)}.png`;
+    weatherImage.src = `img/${getweatherImageCode(weatherData)}.png`;
     return weatherImage;
 }
 
