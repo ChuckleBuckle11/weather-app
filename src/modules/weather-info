@@ -23,7 +23,7 @@ function createWeatherInfo(weatherData){
 function createHeader(){
     const header = document.createElement('div');
     header.id = 'weather-info-header';
-    header.textContent = "Today's Weather Details";
+    header.textContent = "Today's Weather Details".toUpperCase();
     return header
 }
 
@@ -134,7 +134,7 @@ function createInfo(title, subtitle, id){
     const titleText = document.createElement('div');
     titleText.id = `weather-info-${id}-title`;
     titleText.classList.add(`weather-info-title`);
-    titleText.textContent = title;
+    titleText.textContent = title.toUpperCase();
 
     const subtitleText = document.createElement('div');
     subtitleText.id = `weather-info-${id}-subtitle`;

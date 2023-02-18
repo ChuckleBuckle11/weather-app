@@ -11,7 +11,7 @@
   }
   body {
     font-family: "Verlag Black", Arial, Helvetica, sans-serif;
-    background-image: url("./img/679478.jpg");
+    background-image: url("./img/background-img.jpg");
     background-size: contain;
 
     display: flex;
@@ -71,6 +71,12 @@
 
 #search-box{
   text-align: center;
+  padding: 5px;
+  text-transform: uppercase;
+}
+.search-container{
+  display: flex;
+  gap:20px;
 }
 .search-container>input:invalid {
     border: 2px solid red;
@@ -140,8 +146,8 @@
 
 
 #main-weather-content > div{
-  background-color: rgb(255, 255, 255,0.85);
-
+  background-color:rgba(0, 0, 0, 0.473);
+  color:#f1f1f1;
   animation: fadeInAnimation ease 1s;
 }
 
@@ -199,7 +205,7 @@
 }
 
 .forecast-info{
-  width: 50%;
+  width: 20%;
   padding-top: 20px;
   display: flex;
   flex-direction: column;
@@ -246,7 +252,7 @@
   justify-content: end;
   align-items: center;
 
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 
 .weather-info-img-container{
@@ -265,7 +271,7 @@
 .weather-info-subtitle{
   padding-top: 5px;
   font-weight: 100;
-  font-size: 13px;
+  font-size: 15px;
 }
 
   /* Style the footer */

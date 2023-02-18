@@ -16,7 +16,7 @@ function createTodayWeather(weatherData){
 function createCityName(weatherData){
     const cityName = document.createElement('div'); //Creates name of the city and appends to #today-weather
     cityName.id = 'city-name-text';
-    cityName.textContent = `${weatherData.name}`
+    cityName.textContent = `${weatherData.name.toUpperCase()}`
     
     return cityName;
 }

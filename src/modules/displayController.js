@@ -18,13 +18,15 @@ function updateDisplay(weatherData, forecastData){
 
     const forecast = document.querySelector(`#weather-forecast`)
     console.log(forecast);
+
+    // Flickity options
     var flkty = new Flickity( forecast, {
         // options
         cellAlign: 'center',
         contain: true,
         autoPlay:true,
         draggable: true,
-        groupCells:2,
+        groupCells:5,
       });
 
 } 
