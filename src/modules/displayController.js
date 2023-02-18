@@ -17,7 +17,6 @@ function updateDisplay(weatherData, forecastData){
     mainWeatherContent.appendChild(createWeatherInfo(weatherData));
 
     const forecast = document.querySelector(`#weather-forecast`)
-    console.log(forecast);
 
     // Flickity options
     var flkty = new Flickity( forecast, {
