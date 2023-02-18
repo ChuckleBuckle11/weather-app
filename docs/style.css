@@ -12,7 +12,7 @@
   body {
     font-family: "Verlag Black", Arial, Helvetica, sans-serif;
     background-image: url("./img/background-img.jpg");
-    background-size: contain;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
