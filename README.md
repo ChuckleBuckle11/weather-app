@@ -1,7 +1,9 @@
 # FireWatch Themed Weather App
-- uses Firewatch font
+- uses Firewatch font and styling
 - Draggable, smooth carousel slider using Flickity
 - responsive website
+- Weather forecasts over a 5day/3-hour interval
+- Weather details like atmospheric temperature, wind speed, humidity, and more
 
 
 [Try it live here!](https://chucklebuckle11.github.io/weather-app/)
@@ -14,6 +16,4 @@
 2. Hit Enter, or click on the Search button.
 3. The page should now load with the relevant weather information for that city!
 
-## Limitations
-- Temperature data for the weather forecasts are exact 24-hour differences and do not represent temperature across an entire day
 
