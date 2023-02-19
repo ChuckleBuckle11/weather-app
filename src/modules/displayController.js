@@ -1,14 +1,11 @@
-import createTodayWeather from "./todayWeather";
-import createWeatherInfo from "./weather-info";
-import createForecast from "./forecast";
+import createTodayWeather from './todayWeather';
+import createWeatherInfo from './weather-info';
+import createForecast from './forecast';
 
 // This controls any display changes
-const mainWeatherContent = document.querySelector(`#main-weather-content`);
-const DATES = ["January", "February", "March", "April", "May", "June", "July", "August" ,"September", "October" ,"November","December"]
+const mainWeatherContent = document.querySelector('#main-weather-content');
 
-function updateDisplay(weatherData, forecastData){
-    
-    console.log(weatherData) //to remove
+function updateDisplay(weatherData, forecastData) {
     flushMain(); //flushes #main-weather-content
     showMain();
 
@@ -16,7 +13,7 @@ function updateDisplay(weatherData, forecastData){
     mainWeatherContent.appendChild(createForecast(forecastData));
     mainWeatherContent.appendChild(createWeatherInfo(weatherData));
 
-    const forecast = document.querySelector(`#weather-forecast`)
+    const forecast = document.querySelector('#weather-forecast')
 
     // Flickity options
     var flkty = new Flickity( forecast, {
@@ -31,10 +28,10 @@ function updateDisplay(weatherData, forecastData){
 } 
 
 function showMain(){
-    mainWeatherContent.classList.add("active");
+    mainWeatherContent.classList.add('active');
 }
 function flushMain(){
-    mainWeatherContent.textContent = "";
+    mainWeatherContent.textContent = '';
 }
 
 

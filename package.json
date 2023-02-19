@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/ChuckleBuckle11/weather-app#readme",
   "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },

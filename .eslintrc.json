@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "airbnb-base",
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "ignorePatterns": ["flickity.pkgd.min.js"],
+    "rules": {
+        "no-console": "off",
+        "indent": ["error", 4],
+    "eslint.rules.customizations": [
+            { "rule": "prettier/prettier", "severity": "off" },
+            { "rule": "react/jsx-curly-brace-presence", "severity": "off" }
+    ]
+    }
+
+    
+}

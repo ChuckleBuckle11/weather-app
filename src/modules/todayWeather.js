@@ -58,7 +58,7 @@ function createDataTime(weatherData){
 }
 
 function formatDate(unixDate){
-    const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const DAYS = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
     const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     let currentTime = new Date(unixDate*1000);
@@ -70,8 +70,7 @@ function formatDate(unixDate){
     let hour = currentTime.getHours().toString().padStart(2,'0');
     let minute = currentTime.getMinutes().toString().padStart(2,'0');
     let AMPM = getAMPM(hour);
-    let string =  `${DAYS[today-1]} ${date}${suffix} ${MONTHS[month]} ${year} ${hour}:${minute} ${AMPM}`
- 
+    let string =  `${DAYS[today]} ${date}${suffix} ${MONTHS[month]} ${year} ${hour}:${minute} ${AMPM}`
     return string;
 }
 

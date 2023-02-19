@@ -14,7 +14,6 @@ function createForecast(weatherForecastData){
     return forecast;
 }
 function createForecastInfo(parentNode, weatherForecastData){
-    console.log(weatherForecastData)
     const NUMBER_OF_FORECASTS = 40;
     
     for (let i = 0; i < NUMBER_OF_FORECASTS; i++){
@@ -54,7 +53,6 @@ function createForecastInfo(parentNode, weatherForecastData){
 }
 
 function getDateFormat(currentTime){
-    console.log(currentTime.getDay());
     const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let day = DAYS[currentTime.getDay()];
     let date = currentTime.getDate();
