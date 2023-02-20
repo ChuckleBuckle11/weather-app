@@ -67,10 +67,13 @@ function formatDate(unixDate){
     let suffix = getSuffix(date);
     let month = currentTime.getMonth();
     let year = currentTime.getFullYear();
-    let hour = currentTime.getHours().toString().padStart(2,'0');
-    let minute = currentTime.getMinutes().toString().padStart(2,'0');
+    let hour = currentTime.getHours();
     let AMPM = getAMPM(hour);
-    let string =  `${DAYS[today]} ${date}${suffix} ${MONTHS[month]} ${year} ${hour}:${minute} ${AMPM}`
+    hour = hour - 12;
+    let hourFormatted = hour.toString().padStart(2,'0');
+    let minute = currentTime.getMinutes().toString().padStart(2,'0');
+    
+    let string =  `${DAYS[today]} ${date}${suffix} ${MONTHS[month]} ${year} ${hourFormatted}:${minute} ${AMPM}`
     return string;
 }
 
