@@ -61,11 +61,12 @@ function getDateFormat(currentTime){
     return `${day} ${date}/${month}`;
 }
 function getTimeFormat(currentTime){
-    let hour = currentTime.getHours().toString().padStart(2,'0');
+    let hour = currentTime.getHours();
+    let AMPM = getAMPM(hour);
     if (hour > 12){
         hour = hour-12; // forces 12-hour format
     }
-    let AMPM = getAMPM(hour);
+    
     let string = `${hour} ${AMPM}`
 
     return string;
